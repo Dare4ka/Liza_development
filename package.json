@@ -12,6 +12,10 @@
     "last 3 version"
   ],
   "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dare4ka/Liza_development.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.5.4",
