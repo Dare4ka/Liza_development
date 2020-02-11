@@ -8,7 +8,11 @@ html
   line-height: $mainLineHeight
   font-size: $mainFontSize
   color: $mainFontColor
+  background-color: $default-color
   height: 100%
+  width: 100vw
+  overflow-x: hidden
+
   @media screen and (max-width: $desktopWidth)
     font-size: 16px
 
@@ -21,29 +25,16 @@ html
 
 
 body
-  margin: 0
-  padding: 0
   font-family: $mainFont
   font-size: $mainFontSize
   font-weight: $mainFontWeight
+  line-height: 1.2
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
+  width: 100vw
+  overflow-x: hidden
 
-*, *:before, *:after
-  box-sizing: border-box
-
-h1, h2, h3, h4, h5, h6
-  margin: 0
-
-a
-  text-decoration: none
-
-ul, li
-  margin: 0
-  padding: 0
-  list-style-type: none
-
-section, .section
+.section
   position: relative
   padding: 40px 0
   @media screen and (max-width: $desktopWidth)
@@ -54,8 +45,6 @@ section, .section
 
   @media screen and (max-width: $desktopWidth)
     padding: 20px 0
-
-
 
 .wrapper
   display: flex
@@ -68,22 +57,445 @@ section, .section
   display: flex
   flex-direction: column
   min-height: 100vh
+  position: relative
+  &::before
+    @include after()
+    width: 100%
+    height: 500px
+    background: $second-color
+    transform: rotate(45deg)
+    top: 100px
+    left: -200px
 
 
 .container
-  width: 100%
-  flex: 0 0 auto
+  width: $desktopWidth
   position: relative
   margin: 0 auto
-  max-width: $desktopWidth
   @media screen and (max-width: $smDesktopWidth)
-    max-width: tableWidth
+    max-width: $tableWidth
 
   @media screen and (max-width: $tableWidth)
-    max-width: phoneWidth
+    max-width: $phoneWidth
 
   @media screen and (max-width: $phoneWidth)
-    max-width: smPhoneWidth
+    max-width: $smPhoneWidth
+.btn
+  display: flex
+  margin-top: 25px
+  a
+    display: block
+    color: $second-color
+    font-weight: 900
+    text-align: center
+    text-transform: uppercase
+    background-color: $success-color
+    padding: 5px 15px 6px
+    border-radius: 17px
+    position: relative
+    &::before
+      @include after()
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      border-radius: 17px
+      border: 2px solid $success-color
+      pointer-events: none
+    &:hover
+      transition: all .3s
+      background-color: $second-color
+      color: $success-color
+      &::before
+        opacity: 0
+        top: -100px
+        bottom: -100px
+        right: -300%
+        left: -10px
+        border-radius: 50%
+        transition: all .2s
+  &-center
+    justify-content: center
+    a
+      &:hover
+        &::before
+          left: -150%
+          right: -150%
+.title
+  text-transform: uppercase
+  font-weight: bold
+  margin: 15px 0
+  &-1
+    font-size: 38px
+  &-2
+    font-size: 34px
+  &-3
+    font-size: 24px
+  &-color
+    color: $success-color
+.number
+  text-align: center
+  font-weight: 900
+  font-size: 82px
+  line-height: 82px
+  padding: 0 0 10px 15px
+p
+  padding-bottom: 20px
+
+.header
+  width: 100%
+  position: relative
+  z-index: 100
+  .container
+    display: flex
+    justify-content: space-between
+    align-items: center
+  a
+    display: block
+.logo
+  padding: 18px
+  position: relative
+  img
+    position: relative
+    z-index: 1
+  &::before
+    @include after()
+    width: 120px
+    height: 120px
+    background-color: $primary-color
+    top: -60px
+    left: 100%
+    transform: rotate(45deg)
+  &::after
+    @include after()
+    width: 260px
+    height: 260px
+    background-color: $success-color
+    top: -130px
+    left: -30px
+    transform: rotate(45deg)
+a.burger
+  display: none
+.nav
+  text-transform: uppercase
+  font-weight: bold
+  ul
+    display: flex
+  li
+    padding: 10px 15px
+  a
+    position: relative
+    padding: 0 3px
+    transition: all .1s .1s
+    &::after
+      @include after()
+      bottom: 15px
+      left: -15px
+      width: 0
+      height: 2px
+      transform: rotate(45deg)
+      background-color: $success-color
+      transform-origin: left center
+      transition: width .1s
+    &::before
+      @include after()
+      bottom: 15px
+      right: -15px
+      width: 0
+      height: 2px
+      transform: rotate(-45deg)
+      background-color: $success-color
+      transform-origin: right center
+      transition: width .1s
+    &:hover
+      //color: $success-color
+      transition: all .2s .1s
+      &::after
+        width: 120%
+        transition: width .2s
+      &::before
+        width: 120%
+        transition: width .2s
+.first
+  color: $second-color
+  position: relative
+  padding-bottom: 70px
+  overflow: hidden
+  &::after
+    @include after()
+    width: 100px
+    height: 100px
+    background-color: $success-color
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)
+    top: 250px
+    left: 50%
+    transform: translateX(-208px)
+
+  &-bg
+    position: absolute
+    top: 480px
+    left: 0
+    right: 0
+    bottom: 0
+    background-repeat: no-repeat
+    background-size: 100% auto
+    background-position: center bottom
+    clip-path: polygon(75% 0%, 100% 30%, 100% 100%, 0 100%, 0 30%, 25% 0%)
+    opacity: .9
+  .container
+    padding-top: 200px
+.img
+  &-blocks
+    position: absolute
+    right: -100px
+    top: 0
+    display: flex
+    flex-direction: column
+    align-items: center
+  &-block
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)
+    img
+      transition: transform 1s
+      min-width: 100%
+  &-first
+    width: 1000px
+    height: 1000px
+    img
+      &:hover
+        transform: scale(1.1) rotate(8deg)
+  &-two
+    position: relative
+    top: -450px
+    width: 580px
+    height: 580px
+    img
+      &:hover
+        transform: scale(1.1) rotate(-8deg)
+.text
+  &-blocks
+    width: 560px
+  &-block
+
+    position: relative
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)
+  &-first
+    padding-bottom: 100%
+    background-color: $primary-color
+    box-shadow: -10px 10px 20px rgba(35, 31, 33, .5)
+  &-content
+    display: flex
+    flex-direction: column
+    justify-content: center
+    padding: 50px 150px
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+  &-two
+    background-color: $success-color
+    width: 90%
+    padding-bottom: 90%
+    top: -180px
+    left: 208px
+    .text-content
+      padding: 50px 120px
+
+.why
+  &-title
+    text-align: center
+  &-wrapper
+    display: flex
+    justify-content: space-between
+    padding: 40px
+    width: 80%
+    margin: 0 auto
+  &-item
+    width: 40%
+    background-color: rgba(69, 69, 69, .5)
+    padding: 30px
+.border
+  width: 15px
+  height: 15px
+  align-self: center
+  background-color: $second-color
+  transform: rotate(45deg)
+  position: relative
+  &::after
+    @include after()
+    width: 40px
+    height: 2px
+    background-color: $second-color
+    transform: rotate(45deg)
+    left: 20px
+    top: 39px
+  &::before
+    @include after()
+    width: 40px
+    height: 2px
+    background-color: $second-color
+    transform: rotate(45deg)
+    right: 20px
+    bottom: 39px
+.portfolio
+  position: relative
+  overflow: hidden
+  padding: 80px 0 100px
+  &-bg
+    background-repeat: no-repeat
+    background-size: 100% auto
+    background-position: center bottom
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    opacity: .9
+  &-number
+    position: absolute
+    color: $success-color
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 270px
+    height: 270px
+    background-color: rgba(0, 0, 0, .7)
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)
+    top: 270px
+    left: 270px
+    //.number
+    //  padding: 0 0 10px 15px
+  &-first
+    position: absolute
+    top: 0
+    left: 50%
+    transform: translateX(-50%)
+    width: 2400px
+    height: 1200px
+    clip-path: polygon(100% 0,50% 100%, 0 0)
+    margin-bottom: -4px
+    img
+      min-height: 100% !important
+      min-width: 100%
+      width: auto
+      height: auto
+      max-width: none
+  &-text
+    position: relative
+    margin: 0 auto
+    z-index: 1
+    width: 550px
+    height: 550px
+    background-color: $second-color
+    padding: 130px
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    text-align: center
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)
+    top: 400px
+.slider
+  margin: 20px auto
+  &-box
+    display: flex
+    align-items: center
+    justify-content: center
+  &-item
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)
+    position: relative
+    width: 530px
+    padding-bottom: 530px
+    img
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+.seo
+  color: $second-color
+  text-align: center
+  width: 80%
+  margin: 20px auto
+  line-height: 2
+
+.about
+  position: relative
+  padding: 80px 0
+  color: $second-color
+  &-bg
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center
+    background-attachment: fixed
+    &::after
+      @include after()
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      background-color: rgba(0, 0, 0, .66)
+  &-title
+    display: flex
+    flex-direction: column
+    align-items: center
+    position: relative
+    z-index: 1
+    .title-3
+      margin-top: 0
+  &-number
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 170px
+    height: 170px
+    background-color: rgba(0, 0, 0, .7)
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)
+    margin-bottom: -45px
+    position: relative
+    z-index: -1
+    color: $success-color
+    .number
+      font-size: 66px
+      padding-left: 10px
+  &-blocks
+    display: flex
+    justify-content: space-between
+    padding: 40px 0 30px
+  &-img
+    width: 100px
+    padding: 20px 25px 20px 0
+    fill: $second-color
+    > *
+      width: 100%
+      height: auto
+  &-block
+    display: flex
+    width: 30%
+    &:hover
+      svg
+        fill: $success-color
+  &-text
+    width: calc(100% - 100px)
+.testimonials
+  position: relative
+  padding: 80px 0
+  color: $second-color
+  .about-bg
+    //background-attachment: local
+  &-blocks
+    display: flex
+    justify-content: space-between
+    padding: 40px 0 30px
+  &-block
+    width: 45%
+    display: flex
+    flex-direction: column
+    justify-content: space-between
 
 
 

@@ -10,9 +10,13 @@ import './assets/sass/main.sass'
 // Vue.js
 window.Vue = require('vue')
 
-// Vue components (for use in html)
-Vue.component('example-component', require('./components/Example.vue').default)
 
+// Vue components (for use in html)
+Vue.component('slider-component', require('./components/slider.vue').default)
+
+
+// import VueAgile from 'vue-agile'
+// Vue.use(VueAgile)
 // Vue init
 const app = new Vue({
   el: '#app'

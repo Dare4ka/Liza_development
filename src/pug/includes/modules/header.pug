@@ -1,3 +1,20 @@
-header
+header.header#home
 	.container
-		span header
+		a.logo(href="#")
+			img(src="/assets/img/logo.png")
+		nav.nav
+			ul
+				mixin nav(href, text)
+					li
+						a(href=href)= text
+				+nav('#home', 'home')
+				+nav('#features', 'features')
+				+nav('#portfolio', 'portfolio')
+				+nav('#about', 'about us')
+				+nav('#testimonials', 'testimonials')
+				+nav('#contacts', 'contacts')
+		a.burger(href="#")
+			.burger_top
+			.burger_middle
+			.burger_bottom
+

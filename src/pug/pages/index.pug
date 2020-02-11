@@ -2,22 +2,110 @@
 extends ../layout/main
 
 block variables
-	- var title = 'Webpack + Pug';
-	- var description = 'Description for Webpack + Pug';
-	- var pageClass = 'index-page';
+	- var title = 'liza';
+	- var description = 'liza';
+	- var pageClass = 'body';
 
 block content
-	section
+	section.first#first
+		.first-bg(style="background-image: url('assets/img/bg1.jpg')")
 		.container
-			+item('item title', 'item descr')
-			+item('item title', 'item descr')
-			+item('item title', 'item descr')
-		example-component
+			.img-blocks
+				.img-first.img-block
+					img(src="/assets/img/stock-photo-beautiful-woman-with-red-lips-and-burgundy-manicure-753940156.jpg")
+				.img-two.img-block
+					img(src="/assets/img/stock-photo-newly-married-couple-on-wedding-dresses-gold-rings-89255035.jpg")
+			.text-blocks
+				.text-block.text-first
+					.text-content
+						h1.title.title-2.title-color
+							| We are best
+						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. A dicta eius excepturi impedit quidem recusandae vel. Aliquam beatae magni ullam?
+						.btn
+							a(href="#") Book in
+				.text-block.text-two
+					.text-content
+						.number 1.
+						h2.title.title-3
+							| We are best
+						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex libero officiis praesentium quo, quos voluptatibus?
+			.why-block#features
+				.why-title
+					h2.title.title-1 Why chose us
+					h3.title.title-3 Lorem ipsum dolor
+				.why-wrapper
+					mixin why(title, text)
+						.why-item
+							h4.title.title-3.title-color=title
+							p=text
+					+why("Feature", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A dicta eius excepturi impedit quidem recusandae vel. Aliquam beatae magni ullam? Lorem ipsum dolor sit amet, consectetur adipisicing elit. A dicta eius excepturi impedit quidem recusandae vel. Aliquam beatae magni ullam?")
+					.border
+					+why("Feature", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A dicta eius excepturi impedit quidem recusandae vel.")
+				.btn.btn-center
+					a(href="#") Book in
+	section.portfolio#portfolio
+		.portfolio-bg(style="background-image: url('/assets/img/bg1.jpg')")
+		.portfolio-first
+			img(src="/assets/img/stock-photo-summer-beauty-portrait-with-colorful-fashion-accessories-460592089.jpg")
+		.container
+			.portfolio-number
+				.number 2.
+			.portfolio-text
+				h2.title.title-1.title-color Portfolio
+				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consequatur cumque eius inventore maiores minima perferendis, possimus quae totam vel. Architecto fugiat molestias odit sint.
+				.btn.btn-center
+					a(href="#") See more
+			.portfolio-slider
+				.slider#slider
+					slider-component
+			.seo
+				h2.title.title-3 Seo text
+				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci atque dignissimos dolorum error eum expedita, facere id magnam magni nemo odio officiis quas quidem repellat soluta sunt vel vero. Asperiores corporis debitis ea error, ex fuga in ipsum iste laborum minima modi mollitia omnis optio quod recusandae tempora ut. Adipisci animi consectetur impedit vel. Asperiores eaque excepturi hic quae?
+	section.about#about
+		.about-bg(style="background-image: url('/assets/img/stock-photo-black-and-silver-manicure-with-cherry-blossom-on-black-background-woman-with-black-nails-1081342649.jpg')")
+		.container
+			.about-title
+				.about-number
+					.number 3.
+				h2.title.title-1 About us
+				h3.title.title-3 Lorem ipsum dolor
+			.about-blocks
+				mixin about(title, text)
+					.about-block
+						.about-img
+							block
+						.about-text
+							h4.title.title-3.title-color=title
+							p=text
+				+about("title title", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci atque dignissimos dolorum error eum expedita,")
+					| <svg viewBox="0 0 50 50">    <path d="M 24.984375 2.9863281 A 1.0001 1.0001 0 0 0 24 4 L 24 10 A 1.0001 1.0001 0 1 0 26 10 L 26 4 A 1.0001 1.0001 0 0 0 24.984375 2.9863281 z M 3.9785156 7.9902344 A 1.0001 1.0001 0 0 0 3.375 9.78125 L 8.375 13.78125 A 1.0004882 1.0004882 0 1 0 9.625 12.21875 L 4.625 8.21875 A 1.0001 1.0001 0 0 0 3.9785156 7.9902344 z M 45.992188 7.9921875 A 1.0001 1.0001 0 0 0 45.375 8.21875 L 40.375 12.21875 A 1.0004882 1.0004882 0 1 0 41.625 13.78125 L 46.625 9.78125 A 1.0001 1.0001 0 0 0 45.992188 7.9921875 z M 13.521484 16 L 18.162109 24.248047 L 25 16.089844 L 31.832031 24.242188 L 36.412109 16 L 13.521484 16 z M 38.195312 16.908203 L 33.699219 25 L 45.060547 25 L 38.195312 16.908203 z M 11.767578 16.960938 L 5.0429688 25 L 16.291016 25 L 11.767578 16.960938 z M 25 19.203125 L 20.142578 25 L 29.857422 25 L 25 19.203125 z M 5.1035156 27 L 22.248047 44.607422 L 17.244141 27 L 5.1035156 27 z M 19.324219 27 L 25 46.972656 L 30.675781 27 L 19.324219 27 z M 32.755859 27 L 27.746094 44.623047 L 45 27 L 32.755859 27 z"></path></svg>
+				.border
+				+about("title title", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci atque dignissimos dolorum error eum expedita, Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci atque dignissimos dolorum error eum expedita,")
+					| <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26"><path d="M 7.5 0 C 6.101563 0 4.789063 0.398438 3.6875 1 C 4.085938 1 4.394531 1.207031 4.59375 1.40625 C 4.792969 1.605469 4.898438 1.886719 5 2.1875 C 5.800781 1.789063 6.601563 1.59375 7.5 1.59375 C 10.699219 1.59375 13.40625 4.199219 13.40625 7.5 C 13.40625 10.699219 10.800781 13.40625 7.5 13.40625 C 4.300781 13.40625 1.59375 10.800781 1.59375 7.5 C 1.628906 7.492188 1.652344 7.511719 1.6875 7.5 C 1.6875 5.699219 2.5 5 2.5 5 L 3.3125 5.6875 C 3.414063 5.789063 3.492188 5.8125 3.59375 5.8125 C 3.695313 5.8125 3.8125 5.695313 3.8125 5.59375 C 4.113281 4.195313 4 2.414063 4 2.3125 C 4 2.210938 3.90625 2.09375 3.90625 2.09375 C 3.804688 1.992188 3.789063 2 3.6875 2 C 3.585938 2 1.914063 1.886719 0.3125 2.1875 C 0.210938 2.1875 0.09375 2.304688 0.09375 2.40625 C 0.09375 2.507813 0.0859375 2.6875 0.1875 2.6875 L 1.09375 3.5 C 1.09375 3.5 0.824219 3.914063 0.5625 4.65625 C 0.542969 4.699219 0.519531 4.738281 0.5 4.78125 C 0.460938 4.894531 0.441406 5 0.40625 5.125 C 0.152344 5.859375 0 6.65625 0 7.5 C 0 11.601563 3.398438 15 7.5 15 C 11.601563 15 15 11.601563 15 7.5 C 15 3.398438 11.601563 0 7.5 0 Z M 20 2 C 19.398438 2 19 2.398438 19 3 L 19 6 C 19 6.601563 19.398438 7 20 7 C 20.601563 7 21 6.601563 21 6 L 21 3 C 21 2.398438 20.601563 2 20 2 Z M 10.3125 4 C 10.210938 4.011719 10.144531 4.042969 10.09375 4.09375 L 7.59375 6.4375 C 7.226563 6.371094 6.847656 6.433594 6.59375 6.6875 C 6.195313 7.085938 6.195313 7.8125 6.59375 8.3125 C 6.648438 8.367188 6.714844 8.398438 6.78125 8.4375 L 7 10.90625 C 7 11.105469 7.101563 11.3125 7.5 11.3125 C 7.800781 11.3125 8 11.007813 8 10.90625 L 8.15625 8.34375 C 8.167969 8.335938 8.175781 8.320313 8.1875 8.3125 C 8.441406 7.996094 8.535156 7.601563 8.46875 7.25 L 10.6875 4.6875 C 10.789063 4.585938 10.886719 4.292969 10.6875 4.09375 C 10.539063 3.992188 10.414063 3.988281 10.3125 4 Z M 15.1875 4 C 15.6875 5.101563 16 6.300781 16 7.5 C 16 8.398438 15.894531 9.199219 15.59375 10 L 24 10 L 24 23 C 24 23.601563 23.601563 24 23 24 L 5 24 C 4.398438 24 4 23.601563 4 23 L 4 15.1875 C 3.300781 14.886719 2.601563 14.40625 2 13.90625 L 2 22.90625 C 2 24.605469 3.300781 25.90625 5 25.90625 L 23 25.90625 C 24.699219 25.90625 26 24.605469 26 22.90625 L 26 7 C 26 5.300781 24.699219 4 23 4 L 22 4 L 22 6 C 22 7.101563 21.101563 8 20 8 C 18.898438 8 18 7.101563 18 6 L 18 4 Z M 15 12 L 15 14 L 17 14 L 17 12 Z M 19 12 L 19 14 L 21 14 L 21 12 Z M 7 16 L 7 18 L 9 18 L 9 16 Z M 11 16 L 11 18 L 13 18 L 13 16 Z M 15 16 L 15 18 L 17 18 L 17 16 Z M 19 16 L 19 18 L 21 18 L 21 16 Z M 7 20 L 7 22 L 9 22 L 9 20 Z M 11 20 L 11 22 L 13 22 L 13 20 Z M 15 20 L 15 22 L 17 22 L 17 20 Z M 19 20 L 19 22 L 21 22 L 21 20 Z"></path></svg>
+				.border
+				+about("title title", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci atque dignissimos dolorum error eum expedita,")
+					| <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">    <path d="M 15 3 C 13.346 3 12 4.346 12 6 C 12 7.654 13.346 9 15 9 C 15.195356 9 15.38526 8.9792031 15.570312 8.9433594 L 20.117188 17.470703 A 1.0004591 1.0004591 0 1 0 21.882812 16.529297 L 17.289062 7.9160156 C 17.726176 7.394691 18 6.7318388 18 6 C 18 4.346 16.654 3 15 3 z M 35 3 C 33.346 3 32 4.346 32 6 C 32 6.7318388 32.273824 7.394691 32.710938 7.9160156 L 28.117188 16.529297 A 1.0004591 1.0004591 0 1 0 29.882812 17.470703 L 34.429688 8.9433594 C 34.61474 8.9792031 34.804644 9 35 9 C 36.654 9 38 7.654 38 6 C 38 4.346 36.654 3 35 3 z M 25.908203 20 C 21.099203 20 18.065281 22.472172 17.988281 26.451172 C 17.971281 27.329172 18.086984 28.273625 18.333984 29.265625 C 18.101984 29.651625 17.951437 30.177266 18.023438 30.822266 C 18.163438 32.064266 18.599156 32.698484 19.035156 33.021484 C 19.309156 34.350484 20.300953 35.740266 21.001953 36.447266 L 21.001953 38.248047 C 20.673953 38.874047 19.5855 39.354328 18.4375 39.861328 C 16.2325 40.837328 13.212953 42.171359 13.001953 45.943359 C 12.986953 46.217359 13.084437 46.4875 13.273438 46.6875 C 13.461437 46.8875 13.725 47 14 47 L 36 47 C 36.275 47 36.537563 46.8875 36.726562 46.6875 C 36.915563 46.4875 37.013047 46.217359 36.998047 45.943359 C 36.786047 42.170359 33.7675 40.835375 31.5625 39.859375 C 30.4155 39.352375 29.328 38.873047 29 38.248047 L 29 36.441406 C 29.709 35.707406 30.678938 34.268234 30.960938 32.990234 C 31.399938 32.669234 31.839516 32.033203 31.978516 30.783203 C 32.048516 30.158203 31.9375 29.596641 31.6875 29.181641 C 31.8705 28.453641 31.973281 27.716484 31.988281 27.021484 C 32.023281 25.412484 31.500672 23.969938 30.513672 22.960938 C 29.664672 22.093937 28.508672 21.574359 27.138672 21.443359 L 26.847656 20.652344 C 26.702656 20.260344 26.327203 20 25.908203 20 z M 5 22 C 3.346 22 2 23.346 2 25 C 2 26.654 3.346 28 5 28 C 6.3016094 28 7.4021391 27.161251 7.8164062 26 L 15 26 A 1.0001 1.0001 0 1 0 15 24 L 7.8164062 24 C 7.4021391 22.838749 6.3016094 22 5 22 z M 45 22 C 43.698391 22 42.597861 22.838749 42.183594 24 L 35 24 A 1.0001 1.0001 0 1 0 35 26 L 42.183594 26 C 42.597861 27.161251 43.698391 28 45 28 C 46.654 28 48 26.654 48 25 C 48 23.346 46.654 22 45 22 z M 25.21875 22.019531 L 25.488281 22.757812 C 25.633281 23.151812 26.009734 23.410156 26.427734 23.410156 C 27.573734 23.410156 28.467031 23.728422 29.082031 24.357422 C 29.689031 24.978422 30.011281 25.909563 29.988281 26.976562 C 29.973281 27.675563 29.843281 28.434875 29.613281 29.171875 C 29.533281 29.425875 29.558594 29.7015 29.683594 29.9375 C 29.757594 30.0775 29.863234 30.195156 29.990234 30.285156 C 30.000234 30.345156 30.004234 30.437547 29.990234 30.560547 C 29.937234 31.039547 29.838109 31.257797 29.787109 31.341797 C 29.353109 31.453797 29.039063 31.848547 29.039062 32.310547 C 29.039062 33.161547 27.826813 34.862953 27.507812 35.126953 C 27.194812 35.305953 27 35.639 27 36 L 27 38.447266 C 27 38.462266 27.006812 38.477188 27.007812 38.492188 C 26.657813 38.705188 25.997 39 25 39 C 24.003 39 23.341188 38.705187 22.992188 38.492188 C 22.992188 38.477187 23 38.462266 23 38.447266 L 23 36 C 23 35.638 22.853109 35.335203 22.537109 35.158203 C 22.168109 34.874203 20.960938 33.267563 20.960938 32.351562 C 20.960938 31.890563 20.647844 31.496813 20.214844 31.382812 C 20.164844 31.298813 20.064766 31.078609 20.009766 30.599609 C 19.988766 30.411609 20.024859 30.310078 20.005859 30.330078 C 20.356859 30.085078 20.514531 29.643469 20.394531 29.230469 C 20.107531 28.241469 19.969328 27.320234 19.986328 26.490234 C 20.038328 23.818234 21.93475 22.214531 25.21875 22.019531 z"></path></svg>
+	section.testimonials#testimonials
+		.about-bg(style="background-image: url('/assets/img/stock-photo-fashionable-young-woman-with-black-manicure-on-dark-background-1137790262.jpg')")
+		.container
+			.about-title
+				.about-number
+					.number 4.
+				h2.title.title-1 Testimonials
+				h3.title.title-3 Lorem ipsum dolor
+			.testimonials-blocks
+				mixin testimonials(title, text)
+					.testimonials-block
+						.testimonials-wrapper
+							h4.title.title-3.title-color=title
+							p=text
+						.btn.btn-center
+							a(href="#") Read more
+				+testimonials("title title", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci atque dignissimos dolorum error eum expedita,")
+				.border
+				+testimonials("title title", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci atque dignissimos dolorum error eum expedita, Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci atque dignissimos dolorum error eum expedita,")
 
-block script
-	script(type='text/javascript').
-		const foo = true;
-		let bar = function() {};
-		if (foo) {
-		bar(1 + 5)
-		}
+
+
+
+
